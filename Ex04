@@ -1,0 +1,24 @@
+package main
+
+import (
+	"fmt"
+	"strconv"
+)
+
+func main() {
+	x := 12340
+	updateDigits(&x)
+	fmt.Println(x)
+}
+
+func updateDigits(x *int) {
+	xStr := strconv.Itoa(*x)
+
+	last := xStr[len(xStr)-1]
+	secondLast := xStr[len(xStr)-2]
+
+	LastI, _ := strconv.Atoi(string(last))
+	secondLastI, _ := strconv.Atoi(string(secondLast))
+
+	*x = LastI + secondLastI
+}
